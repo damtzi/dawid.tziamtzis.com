@@ -1,0 +1,25 @@
+{
+	"$schema": "./node_modules/oxfmt/configuration_schema.json",
+	"useTabs": true,
+	"singleQuote": true,
+	"trailingComma": "none",
+	"printWidth": 100,
+	"sortPackageJson": false,
+	"ignorePatterns": [
+		"**/*.astro",
+		"pnpm-lock.yaml",
+		"dist/",
+		".astro/",
+		".wrangler/",
+		"node_modules/",
+		"npm-debug.log*",
+		"yarn-debug.log*",
+		"yarn-error.log*",
+		"pnpm-debug.log*",
+		".env",
+		".env.production",
+		".dev.vars*",
+		".DS_Store",
+		".idea/"
+	]
+}

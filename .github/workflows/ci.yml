@@ -29,8 +29,8 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Check Astro and TypeScript
-        run: pnpm check
+      - name: Lint, format, and type-check
+        run: pnpm lint
 
       - name: Build site
         run: pnpm build

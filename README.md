@@ -19,6 +19,12 @@ pnpm build
 pnpm wrangler deploy --dry-run
 ```
 
+## Code quality
+
+Run `pnpm lint` for Oxlint, ESLint, Astro/TypeScript diagnostics, and formatting
+checks. Use `pnpm format` and `pnpm lint:fix` to apply automatic fixes. Husky
+runs lint-staged before commits and enforces conventional commit messages.
+
 ## Cloudflare and GitHub setup
 
 The `tziamtzis.com` zone must be active in the Cloudflare account used for

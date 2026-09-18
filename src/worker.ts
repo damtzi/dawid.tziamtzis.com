@@ -1,24 +1,22 @@
-/// <reference types="@cloudflare/workers-types" />
-
 interface Env {
-  ASSETS: Fetcher;
+	ASSETS: Fetcher;
 }
 
 const canonicalHost = 'dawid.tziamtzis.com';
 const redirectHost = 'david.tziamtzis.com';
 
 export default {
-  fetch(request, env) {
-    const url = new URL(request.url);
+	fetch(request, env) {
+		const url = new URL(request.url);
 
-    if (url.hostname === redirectHost) {
-      url.protocol = 'https:';
-      url.hostname = canonicalHost;
-      url.port = '';
+		if (url.hostname === redirectHost) {
+			url.protocol = 'https:';
+			url.hostname = canonicalHost;
+			url.port = '';
 
-      return Response.redirect(url, 301);
-    }
+			return Response.redirect(url, 301);
+		}
 
-    return env.ASSETS.fetch(request);
-  },
+		return env.ASSETS.fetch(request);
+	}
 } satisfies ExportedHandler<Env>;
