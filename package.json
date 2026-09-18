@@ -11,7 +11,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "deploy": "pnpm build && wrangler deploy"
+    "deploy": "pnpm build && wrangler deploy --message \"$(git log -1 --pretty=%s)\""
   },
   "dependencies": {
     "astro": "^7.3.3"

@@ -45,3 +45,6 @@ For a manual deployment after authenticating Wrangler:
 ```sh
 pnpm deploy
 ```
+
+Both this command and the GitHub Actions deployment label the Cloudflare Worker
+version with the latest commit subject.
