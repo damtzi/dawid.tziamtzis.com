@@ -4,6 +4,10 @@ dist/
 # generated types
 .astro/
 
+# Cloudflare local state and secrets
+.wrangler/
+.dev.vars*
+
 # dependencies
 node_modules/
 
