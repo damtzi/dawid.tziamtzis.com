@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+cd "$repo_root"
+
+required_pnpm="11.20.0"
+
+printf 'Checking Node.js...\n'
+node -e '
+const [major, minor] = process.versions.node.split(".").map(Number);
+if (major < 22 || (major === 22 && minor < 12)) {
+	throw new Error("Node.js 22.12.0 or newer is required");
+}
+'
+
+if ! command -v pnpm >/dev/null 2>&1 || [[ "$(pnpm --version)" != "$required_pnpm" ]]; then
+	printf 'Installing pnpm %s...\n' "$required_pnpm"
+	npm install --global "pnpm@$required_pnpm"
+fi
+
+printf 'Installing dependencies...\n'
+start=$SECONDS
+pnpm install --frozen-lockfile
+printf 'Dependencies ready in %ss.\n' "$((SECONDS - start))"
